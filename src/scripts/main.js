@@ -1,17 +1,16 @@
 
 import { recipes } from "./data/recipes.js"; // IMPORT DATA 
-import { displayDefaultDOM } from "./dom/display.js";
-
-// defaultRecipes contains the recipes without filter or research
-// whiles recipes contains the recipes with or without filter / research
-var defaultRecipes = recipes; 
+import { displayCards } from "./dom/display.js";
 
 
 // Function to init the code
-function init() { 
-
+function init() {
+    // Display cards by default all cards since recipes is not modified 
+    // at first load 
+    displayCards(recipes, ".cards-container");
+   
 }
 
-init(); 
+init();
 
 
