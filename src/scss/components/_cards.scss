@@ -1,0 +1,103 @@
+.cards-container {
+    margin-top: 82px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+
+    .card {
+        width: 380px;
+        height: 364px;
+        border-radius: 5px;
+        background-color: #E7E7E7;
+        border-radius: 0px 0px 5px 5px;
+
+        .card-header {
+            background-color: #C7BEBE;
+            height: 178px;
+            border-radius: 5px 5px 0px 0px;
+
+        }
+
+        .card-body {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: repeat(2, auto);
+            align-items: flex-start;
+            padding: 20px;
+            row-gap: 20px;
+
+            .title {
+                h3 {
+                    margin: 0;
+                    font-size: 18px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .time {
+                display: flex;
+                justify-self: flex-end;
+
+                img {
+                    margin-right: 7px;
+                    width: 18px;
+                    height: 18px;
+                }
+
+                p {
+                    margin: 0;
+                    font-size: 18px;
+                    font-weight: 700;
+                }
+            }
+
+            .ingredients {
+                .ingredients-list {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    padding: 0;
+
+                    .ingredient {
+                        list-style: none;
+                        margin: 0;
+                        padding: 0;
+                        font-size: 12px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+
+                        .name {
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+
+            .description {
+                word-wrap: break-word;
+                overflow: hidden;
+                max-height: 96px;
+                text-overflow: ellipsis;
+
+                p {
+                    margin: 0;
+                    font-size: 12px;
+                }
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .cards-container.container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        gap: 35px;
+    }
+}

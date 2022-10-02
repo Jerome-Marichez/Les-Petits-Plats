@@ -1,0 +1,196 @@
+.search {
+    position: relative;
+
+    .search-input {
+        // max-width: 1100px;
+        // width: 950px;
+        width: calc(100% - 80px);
+        margin: 17px 0px 25px 0px;
+        padding: 16px;
+        padding-right: 64px;
+        border: none;
+        border-radius: 4px;
+        background-color: #E7E7E7;
+    }
+
+    .search-icon {
+        position: absolute;
+        right: 32px;
+        width: 28px;
+        height: 28px;
+        top: 45%;
+        transform: translate(50%, -50%);
+    }
+}
+
+.filter_container {
+    position: relative;
+    margin-top: 16px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+
+    .filter {
+        //width: 100%;
+        // width: 667px;
+        height: max-content;
+        border-radius: 5px;
+        background-color: #E7E7E7;
+
+        .filter-input-container {
+            position: relative;
+
+            input {
+                box-sizing: border-box;
+                color: white;
+
+                &::placeholder {
+                    color: white;
+                    opacity: 1;
+                }
+
+                padding-left: 16px;
+                width: calc(100% - 56px);
+                height: 69px;
+                background-color: transparent;
+                border: none;
+            }
+
+            img {
+                position: absolute;
+                right: 12px;
+                top: 35%;
+                height: 20px;
+                filter: brightness(0) invert(1);
+                transition: transform .6s;
+                cursor: pointer;
+            }
+        }
+
+        .filter-list {
+            position: absolute;
+            margin: 0;
+            padding: 16px;
+            padding-top: 0;
+            grid-template-columns: repeat(3, 1fr);
+            display: none;
+            overflow: hidden;
+
+            .filter-list-item {
+                color: white;
+                padding: 0;
+                margin: 0;
+                margin-bottom: 10px;
+                list-style: none;
+                cursor: pointer;
+                overflow: hidden;
+            }
+
+        }
+
+        &.filter-open {
+            border-radius: 5px 5px 0 0;
+            width: calc(792px + 32px) !important;
+
+            .filter-input-container {
+                img {
+                    transition: transform .6s;
+                    transform: rotate(180deg);
+                }
+            }
+
+            .filter-list {
+                display: grid !important;
+            }
+        }
+    }
+
+    .ingredients {
+        background-color: $ingredientsColor;
+
+        .filter-list {
+            width: 792px;
+            background-color: $ingredientsColor;
+            top: 100%;
+        }
+    }
+
+    .appliances {
+        background-color: $appliancesColor;
+
+        .filter-list {
+            width: 792px;
+            background-color: $appliancesColor;
+            top: 100%;
+        }
+    }
+
+    .ustensils {
+        background-color: $ustensilsColor;
+
+        .filter-list {
+            width: 792px;
+            background-color: $ustensilsColor;
+            top: 100%;
+        }
+    }
+}
+
+.selected_filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    .selected-filter {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        background-color: #C7BEBE;
+        width: max-content;
+        padding: 10px 20px;
+        border-radius: 5px;
+
+        &.ingredient {
+            background-color: $ingredientsColor;
+        }
+
+        &.appliance {
+            background-color: $appliancesColor;
+        }
+
+        &.ustensil {
+            background-color: $ustensilsColor;
+        }
+
+        p {
+            margin: 0;
+            color: white;
+        }
+
+        img {
+            height: 24px;
+            filter: brightness(0) invert(1);
+            cursor: pointer;
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .search {
+        margin: 0 30px;
+    }
+
+    .filter_container {
+        margin: 0 30px;
+        display: grid;
+        gap: 20px;
+    }
+
+    .selected_filter {
+        margin: 0px 0px 30px 30px;
+    }
+
+    .filter-input-container {
+        width: 100%;
+    }
+}

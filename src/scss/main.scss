@@ -1,0 +1,7 @@
+/* Import Variables SCSS */ 
+@import "variables.scss";
+/** Import Scss for pages (Global CSS,Header,Footer,Font) */
+@import "pages.scss"; 
+/** Imports Components **/
+@import "./components/searchbar.scss"; 
+@import "./components/cards";

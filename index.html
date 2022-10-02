@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Les petits plats</title>
+        <link rel="icon" href="./assets/favicon/favicon.png" type="image/x-icon">
+        <link rel="stylesheet" href="./src/css/style.css">
+    </head>
+    <body>
+        <header class="header container">
+            <img class="logo" src="./assets/logo/logo-500x500.png" alt="Logo">
+            <div class="search">
+                <input
+                    type="text"
+                    id="recipeSearch"
+                    name="recipeSearch"
+                    class="search-input"
+                    placeholder="Rechercher une recette"
+                >
+                <img class="search-icon" src="./assets/icons/magnifying-glass-solid.svg" alt="">
+            </div>
+            <div class="selected_filter">
+                <div class="selected-filter ustensil">
+                    <p>cocotte minute</p>
+                    <img src="./assets/icons/circle-xmark-regular.svg" alt="">
+                </div>
+                <div class="selected-filter appliance">
+                    <p>Mixer</p>
+                    <img src="./assets/icons/circle-xmark-regular.svg" alt="">
+                </div>
+                <div class="selected-filter ingredient">
+                    <p>Oignon</p>
+                    <img src="./assets/icons/circle-xmark-regular.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="filter_container">
+            <div class="filter ingredients">
+                <div class="filter-input-container">
+                    <input
+                        type="text"
+                        name="filterListInput"
+                        id="filterListInputIngredients"
+                        placeholder="Ingredients"
+                    >
+                    <img id="ingredientListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+                </div>
+                <ul class="filter-list list-ingredients">
+                    <li class="filter-list-item"></li>
+                </ul>
+            </div>
+            <div class="filter appliances">
+                <div class="filter-input-container">
+                    <input
+                        id="filterListInputAppliances"
+                        type="text"
+                        name="filterListInput"
+                        placeholder="Appareils"
+                    >
+                    <img id="applianceListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+                </div>
+                <ul class="filter-list list-appliances">
+                    <li class="filter-list-item"></li>
+                </ul>
+            </div>
+            <div class="filter ustensils">
+                <div class="filter-input-container">
+                    <input
+                        id="filterListInputUstensils"
+                        type="text"
+                        name="filterListInput"
+                        placeholder="Ustensiles"
+                    >
+                    <img
+                        id="ustensilListArrow"
+                        class="rotated"
+                        src="./assets/icons/chevron-down-solid.svg"
+                        alt=""
+                    >
+                </div>
+                <ul class="filter-list list-ustensils">
+                    <li class="filter-list-item"></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <main class="cards-container container">
+        <div class="card">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <div class="title">
+                    <h3></h3>
+                </div>
+                <div class="time">
+                    <img src="./assets/icons/clock-regular.svg" alt="">
+                    <p></p>
+                </div>
+                <div class="ingredients">
+                    <ul class="ingredients-list">
+                        <li class="ingredient">
+                            <span class="name"></span>
+                        </li>
+                        <li class="ingredient">
+                            <span class="name"></span>
+                        </li>
+                        <li class="ingredient">
+                            <span class="name"></span>
+                        </li>
+                        <li class="ingredient">
+                            <span class="name"></span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="description">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+        <p id="errorMessage">
+            Aucune recette ne correspond à votre critère... vous pouvez
+        chercher "tarte aux pommes" ect...
+        </p>
+    </main>
+    <script src="./src/scripts/main.js" type="module"></script>
+    <footer></footer>
+</body>
+</html>

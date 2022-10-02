@@ -1,0 +1,298 @@
+/* Import Variables SCSS */
+/** Import Scss for pages (Global CSS,Header,Footer,Font) */
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.logo {
+  width: 268px;
+  align-self: center;
+}
+
+#errorMessage {
+  color: rgba(0, 0, 0, 0.43);
+  font-size: 42px;
+  display: none;
+}
+
+.not-found {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+input {
+  outline: none;
+}
+
+@media screen and (max-width: 1200px) {
+  #errorMessage {
+    font-size: 1.2em;
+    margin: 20px 18px 20px;
+  }
+}
+/** Imports Components **/
+.search {
+  position: relative;
+}
+.search .search-input {
+  width: calc(100% - 80px);
+  margin: 17px 0px 25px 0px;
+  padding: 16px;
+  padding-right: 64px;
+  border: none;
+  border-radius: 4px;
+  background-color: #E7E7E7;
+}
+.search .search-icon {
+  position: absolute;
+  right: 32px;
+  width: 28px;
+  height: 28px;
+  top: 45%;
+  transform: translate(50%, -50%);
+}
+
+.filter_container {
+  position: relative;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.filter_container .filter {
+  height: max-content;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+}
+.filter_container .filter .filter-input-container {
+  position: relative;
+}
+.filter_container .filter .filter-input-container input {
+  box-sizing: border-box;
+  color: white;
+  padding-left: 16px;
+  width: calc(100% - 56px);
+  height: 69px;
+  background-color: transparent;
+  border: none;
+}
+.filter_container .filter .filter-input-container input::placeholder {
+  color: white;
+  opacity: 1;
+}
+.filter_container .filter .filter-input-container img {
+  position: absolute;
+  right: 12px;
+  top: 35%;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: transform 0.6s;
+  cursor: pointer;
+}
+.filter_container .filter .filter-list {
+  position: absolute;
+  margin: 0;
+  padding: 16px;
+  padding-top: 0;
+  grid-template-columns: repeat(3, 1fr);
+  display: none;
+  overflow: hidden;
+}
+.filter_container .filter .filter-list .filter-list-item {
+  color: white;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 10px;
+  list-style: none;
+  cursor: pointer;
+  overflow: hidden;
+}
+.filter_container .filter.filter-open {
+  border-radius: 5px 5px 0 0;
+  width: calc(792px + 32px) !important;
+}
+.filter_container .filter.filter-open .filter-input-container img {
+  transition: transform 0.6s;
+  transform: rotate(180deg);
+}
+.filter_container .filter.filter-open .filter-list {
+  display: grid !important;
+}
+.filter_container .ingredients {
+  background-color: #3282F7;
+}
+.filter_container .ingredients .filter-list {
+  width: 792px;
+  background-color: #3282F7;
+  top: 100%;
+}
+.filter_container .appliances {
+  background-color: #68D9A4;
+}
+.filter_container .appliances .filter-list {
+  width: 792px;
+  background-color: #68D9A4;
+  top: 100%;
+}
+.filter_container .ustensils {
+  background-color: #ED6454;
+}
+.filter_container .ustensils .filter-list {
+  width: 792px;
+  background-color: #ED6454;
+  top: 100%;
+}
+
+.selected_filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.selected_filter .selected-filter {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background-color: #C7BEBE;
+  width: max-content;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.selected_filter .selected-filter.ingredient {
+  background-color: #3282F7;
+}
+.selected_filter .selected-filter.appliance {
+  background-color: #68D9A4;
+}
+.selected_filter .selected-filter.ustensil {
+  background-color: #ED6454;
+}
+.selected_filter .selected-filter p {
+  margin: 0;
+  color: white;
+}
+.selected_filter .selected-filter img {
+  height: 24px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1200px) {
+  .search {
+    margin: 0 30px;
+  }
+
+  .filter_container {
+    margin: 0 30px;
+    display: grid;
+    gap: 20px;
+  }
+
+  .selected_filter {
+    margin: 0px 0px 30px 30px;
+  }
+
+  .filter-input-container {
+    width: 100%;
+  }
+}
+.cards-container {
+  margin-top: 82px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 50px;
+}
+.cards-container .card {
+  width: 380px;
+  height: 364px;
+  border-radius: 5px;
+  background-color: #E7E7E7;
+  border-radius: 0px 0px 5px 5px;
+}
+.cards-container .card .card-header {
+  background-color: #C7BEBE;
+  height: 178px;
+  border-radius: 5px 5px 0px 0px;
+}
+.cards-container .card .card-body {
+  display: grid;
+  grid-template-columns: repeat(2, 50%);
+  grid-template-rows: repeat(2, auto);
+  align-items: flex-start;
+  padding: 20px;
+  row-gap: 20px;
+}
+.cards-container .card .card-body .title h3 {
+  margin: 0;
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .time {
+  display: flex;
+  justify-self: flex-end;
+}
+.cards-container .card .card-body .time img {
+  margin-right: 7px;
+  width: 18px;
+  height: 18px;
+}
+.cards-container .card .card-body .time p {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+.cards-container .card .card-body .ingredients .ingredients-list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.cards-container .card .card-body .ingredients .ingredients-list .ingredient {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .ingredients .ingredients-list .ingredient .name {
+  font-weight: 700;
+}
+.cards-container .card .card-body .description {
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 96px;
+  text-overflow: ellipsis;
+}
+.cards-container .card .card-body .description p {
+  margin: 0;
+  font-size: 12px;
+}
+
+@media screen and (max-width: 1200px) {
+  .cards-container.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 35px;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
