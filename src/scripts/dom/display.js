@@ -1,5 +1,5 @@
 export function displayCards(recipes, selector) {
-    // This function get the data and generate all cards though the data parsed
+    // This function generate all cards though the data parsed
     recipes.forEach(recipe => {
         const cardsContainer = document.querySelector(selector);
         const cardContainer = document.createElement('div');
