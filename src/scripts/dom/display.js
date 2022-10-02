@@ -1,9 +1,7 @@
-
-
-export function displayCards(Cards, Selector) {
+export function displayCards(recipes, selector) {
     // This function get the data and generate all cards though the data parsed
-    Cards.forEach(card => {
-        const cardsContainer = document.querySelector(Selector);
+    recipes.forEach(recipe => {
+        const cardsContainer = document.querySelector(selector);
         const cardContainer = document.createElement('div');
         const cardHeader = document.createElement('div');
         const cardBody = document.createElement('div');
@@ -35,9 +33,9 @@ export function displayCards(Cards, Selector) {
         cardDescriptionContainer.classList.add('description');
 
 
-        cardTitleText.textContent = card.name;
-        cardDurationText.textContent = `${card.time} min`;
-        cardDescriptionText.textContent = card.description;
+        cardTitleText.textContent = recipe.name;
+        cardDurationText.textContent = `${recipe.time} min`;
+        cardDescriptionText.textContent = recipe.description;
 
 
         cardContainer.appendChild(cardHeader);
@@ -50,7 +48,7 @@ export function displayCards(Cards, Selector) {
         cardBody.appendChild(cardIngredientsContainer);
         cardIngredientsContainer.appendChild(cardIngredientsList);
 
-        card.ingredients.forEach((ingredient) => {
+        recipe.ingredients.forEach((ingredient) => {
             const cardIngredientItem = document.createElement('li');
             cardIngredientItem.classList.add("ingredient");
 
