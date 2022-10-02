@@ -8,7 +8,7 @@ function init() {
     // Display cards by default all cards since recipes is not modified 
     // at first load 
     displayCards(recipes, ".cards-container");
-   
+    //clearCards(".cards-container");
 }
 
 init();

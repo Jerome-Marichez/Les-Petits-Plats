@@ -1,3 +1,9 @@
+export function clearCards(selector)
+{
+    // Clear Cards 
+    document.querySelector(selector).innerHTML = "";
+}
+
 export function displayCards(recipes, selector) {
     // This function generate all cards though the data parsed
     recipes.forEach(recipe => {
