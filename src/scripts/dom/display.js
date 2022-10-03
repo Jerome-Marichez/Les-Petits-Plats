@@ -1,6 +1,6 @@
 export function clearCards(selector)
 {
-    // Clear Cards 
+    // Clear Cards to reset DOM
     document.querySelector(selector).innerHTML = "";
 }
 
