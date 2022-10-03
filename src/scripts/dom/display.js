@@ -1,9 +1,13 @@
 
-export function displayTag() {
-     
+export async function displayFilter(recipes, filterContainer) {
+    recipes.forEach(recipe => {
+        
+    });
 }
-export function displayCards(recipes, cardsContainer) {
-    cardsContainer = document.querySelector(cardsContainer);
+
+
+
+export async function displayCards(recipes, cardsContainer) {
 
     // This function generate all cards though the data parsed
     recipes.forEach(recipe => {
