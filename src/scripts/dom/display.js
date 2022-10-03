@@ -1,9 +1,7 @@
 
-export function clearCards(cardsContainer) {
-    // Clear Cards to reset DOM
-    document.querySelector(cardsContainer).innerHTML = "";
+export function displayTag() {
+     
 }
-
 export function displayCards(recipes, cardsContainer) {
     cardsContainer = document.querySelector(cardsContainer);
 
