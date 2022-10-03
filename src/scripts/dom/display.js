@@ -1,7 +1,14 @@
-export function displayCards(recipes, selector) {
+
+export function clearCards(cardsContainer) {
+    // Clear Cards to reset DOM
+    document.querySelector(cardsContainer).innerHTML = "";
+}
+
+export function displayCards(recipes, cardsContainer) {
+    cardsContainer = document.querySelector(cardsContainer);
+
     // This function generate all cards though the data parsed
     recipes.forEach(recipe => {
-        const cardsContainer = document.querySelector(selector);
         const cardContainer = document.createElement('div');
         const cardHeader = document.createElement('div');
         const cardBody = document.createElement('div');
