@@ -1,13 +1,15 @@
-import { clearCards } from "../dom/display.js";
+import { clearCards, displayCards } from "../dom/display.js";
+import { searchAlgo } from "../algo/algo.js";
 
-export function addListenerSearchBar(searchBarID) {
-    const mySearchBar = document.getElementById(searchBarID); 
-    mySearchBar.addEventListener('input', function (evt) {
-        somethingResearched(this.value);
+export function addListenerSearchBar(recipes,searchBar,cardsContainer) {
+    searchBar.addEventListener('input', function (evt) {
+        somethingResearched(recipes, this.value, cardsContainer);
     });
 }
 
-export function somethingResearched(value) {
-    
+export function somethingResearched(recipes, inputValue, cardsContainer) {
+    clearCards(cardsContainer);
+    let filterRecipes = searchAlgo(recipes, inputValue.toLowerCase()); 
+    displayCards(filterRecipes,cardsContainer); 
 }
 
