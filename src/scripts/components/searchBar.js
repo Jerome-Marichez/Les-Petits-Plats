@@ -7,8 +7,19 @@ export function addListenerSearchBar(recipes, searchBar, cardsContainer) {
         updateResearch(recipes, this.value, cardsContainer);
     });
 }
-export function addListenerFilter(recipes,filter_container) { 
-    // filter-open
+export function addListenerGroupFilter(filterSelector) {
+    let isOpen = false;
+
+    filterSelector.addEventListener('click', function () {
+        if (isOpen) {
+            filterSelector.classList.remove("filter-open");
+            isOpen = false;
+        }
+        else {
+            filterSelector.classList.add("filter-open");
+            isOpen = true;
+        }
+    });
 }
 export function updateResearch(recipes, inputValue, cardsContainer) {
     clearCards(cardsContainer);

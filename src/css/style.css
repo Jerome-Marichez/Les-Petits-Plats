@@ -136,25 +136,25 @@ input {
   background-color: #3282F7;
 }
 .filter_container .ingredients .filter-list {
+  z-index: 2;
   width: 792px;
   background-color: #3282F7;
-  top: 100%;
 }
 .filter_container .appliances {
   background-color: #68D9A4;
 }
 .filter_container .appliances .filter-list {
+  z-index: 2;
   width: 792px;
   background-color: #68D9A4;
-  top: 100%;
 }
 .filter_container .ustensils {
   background-color: #ED6454;
 }
 .filter_container .ustensils .filter-list {
+  z-index: 2;
   width: 792px;
   background-color: #ED6454;
-  top: 100%;
 }
 
 .selected_filter {
