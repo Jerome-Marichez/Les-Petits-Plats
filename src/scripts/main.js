@@ -14,8 +14,8 @@ function init() {
     displayCards(recipes, cardsContainer);
 
     // Add listener to 3 filter lists when we click on 
-    const filterContainer = "filter_container";
-    displayFilter(recipes, filterContainer);
+    const filterList = document.querySelectorAll(".filter-list");
+    displayFilter(recipes, filterList);
 
     // Add listener to SearchBar when we wrote something 
     const searchBar = document.getElementById("recipeSearch");

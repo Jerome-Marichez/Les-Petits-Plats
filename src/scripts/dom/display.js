@@ -1,8 +1,73 @@
 
-export async function displayFilter(recipes, filterContainer) {
-    recipes.forEach(recipe => {
-        
+export async function displayFilter(recipes, filterList) {
+
+    // This part of code allow to retrieve correct Filter Section Name Selector
+    let filterAppliances = false, filterUstensils = false, filterIngredients = false;
+
+    filterList.forEach(element => {
+        console.log(element);
+        if (element.className.includes("appliances")) {
+            filterAppliances = document.getElementsByClassName(element.className)[0];
+        }
+        if (element.className.includes("ustensils")) {
+            filterUstensils = document.getElementsByClassName(element.className)[0];
+        }
+        if (element.className.includes("ingredients")) {
+            filterIngredients = document.getElementsByClassName(element.className)[0];
+        }
     });
+    // End of this part of code
+
+
+    // For each Filter Section we are going grab their unique list of filter items in tempory Array
+    let appliancesTmp = [], ingredientsTmp = [], ustensilsTmp = [];
+    recipes.forEach(recipe => {
+
+        if (filterIngredients && recipe.ingredients) {
+            let ingredients = recipe.ingredients;
+            ingredients.forEach(element => {
+                if (!ingredientsTmp.includes(element.ingredient)) { ingredientsTmp.push(element.ingredient); }
+            });
+        }
+
+        if (filterAppliances && recipe.appliance) {
+            if (!appliancesTmp.includes(recipe.appliance)) { appliancesTmp.push(recipe.appliance); }
+        }
+
+        if (filterUstensils && recipe.ustensils) {
+            recipe.ustensils.forEach(element => {
+                if (!ustensilsTmp.includes(element)) { ustensilsTmp.push(element); }
+            });
+
+
+        }
+    });
+
+    // end add filter name in their section
+
+
+    // BUILD LIST 
+    ingredientsTmp.forEach(ingredient => {
+        const ItemList = document.createElement('li');
+        ItemList.classList.add('filter-list-item');
+        ItemList.textContent = ingredient;
+        filterIngredients.appendChild(ItemList);
+    });
+    ustensilsTmp.forEach(ustensil => {
+        const ItemList = document.createElement('li');
+        ItemList.classList.add('filter-list-item');
+        ItemList.textContent = ustensil;
+        filterUstensils.appendChild(ItemList);
+    });
+    appliancesTmp.forEach(appliances => {
+        const ItemList = document.createElement('li');
+        ItemList.classList.add('filter-list-item');
+        ItemList.textContent = appliances;
+        filterAppliances.appendChild(ItemList);
+    });
+    // END BUILD LIST 
+
+
 }
 
 
