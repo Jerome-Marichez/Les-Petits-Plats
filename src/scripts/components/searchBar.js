@@ -11,8 +11,12 @@ export function addListenerGroupFilter(filterSelector) {
     let isOpen = false;
 
     filterSelector.addEventListener('click', function () {
+        const test = document.querySelectorAll(".filter");
+        test.forEach(element => {
+            console.log(element);
+            element.classList.remove("filter-open");
+        });
         if (isOpen) {
-            filterSelector.classList.remove("filter-open");
             isOpen = false;
         }
         else {
