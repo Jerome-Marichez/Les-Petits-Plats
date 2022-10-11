@@ -1,6 +1,8 @@
 import { recipes } from "./data/recipes.js";
 import { displayCards, displayFilter } from "./dom/display.js";
-import { addListenerSearchBar, addListenerGroupFilter } from './components/searchBar.js'; // IMPORT SEARCH BAR FUNCTION 
+
+import { addListenerSearchBar, addListenerGroupFilter, addListenerSelectedFilter }
+    from './components/searchBar.js'; // IMPORT SEARCH BAR FUNCTION 
 
 
 
@@ -18,14 +20,25 @@ function init() {
     displayFilter(recipes, filterList);
 
     // Add listener to SearchBar when we wrote something 
-    const searchBar = document.getElementById("recipeSearch");
-    addListenerSearchBar(recipes, searchBar, cardsContainer);
+    addListenerSearchBar();
 
     // Add listener to Filter when we click
-    addListenerGroupFilter(document.getElementsByClassName("filter ingredients")[0]);
-    addListenerGroupFilter(document.getElementsByClassName("filter appliances")[0]);
-    addListenerGroupFilter(document.getElementsByClassName("filter ustensils")[0]);
+    const groupFilterIngredients = document.getElementsByClassName("filter ingredients")[0];
+    const groupFilterAppliances = document.getElementsByClassName("filter appliances")[0];
+    const groupFilterUstensils = document.getElementsByClassName("filter ustensils")[0];
 
+    addListenerGroupFilter(groupFilterIngredients);
+    addListenerGroupFilter(groupFilterAppliances);
+    addListenerGroupFilter(groupFilterUstensils);
+
+    const ingredientsList = document.querySelectorAll(".list-ingredients li");
+    addListenerSelectedFilter(ingredientsList, "ingredient");
+
+    const ustensilsList = document.querySelectorAll(".list-ustensils li");
+    addListenerSelectedFilter(ustensilsList, "ustensil");
+
+    const applianceslist = document.querySelectorAll(".list-appliances li");
+    addListenerSelectedFilter(applianceslist, "appliance");
 
 }
 

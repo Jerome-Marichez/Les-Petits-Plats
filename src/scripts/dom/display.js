@@ -70,7 +70,34 @@ export async function displayFilter(recipes, filterList) {
 
 }
 
+export function displaySelectedFilter(container, classSelectedFilter, itemValue) {
 
+    // Build the selected filter component 
+    const selectedFilterContainer = document.createElement('div');
+    const id = "close" + Math.floor(Math.random() * 10000); // Random ID
+    selectedFilterContainer.id = id;
+    selectedFilterContainer.classList.add("selected-filter");
+    selectedFilterContainer.classList.add(classSelectedFilter);
+
+    // insert value in our tag
+    const selectedItemValue = document.createElement("p");
+    selectedItemValue.textContent = itemValue;
+
+    const closeIcon = document.createElement("img");
+    closeIcon.setAttribute('src', "./assets/icons/circle-xmark-regular.svg");
+    closeIcon.setAttribute('alt', "");
+
+
+    selectedFilterContainer.appendChild(selectedItemValue);
+    selectedFilterContainer.appendChild(closeIcon);
+
+    //Append the filter component to our document 
+    document.querySelector(container).appendChild(selectedFilterContainer);
+    return id; // return the ID of the displayed Filter
+
+    // End 
+
+}
 
 export async function displayCards(recipes, cardsContainer) {
 
