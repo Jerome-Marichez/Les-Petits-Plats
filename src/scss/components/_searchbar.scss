@@ -90,7 +90,7 @@
 
         &.filter-open {
             border-radius: 5px 5px 0 0;
-            width: calc(792px + 32px) !important;
+            width: calc(792px + 32px);
 
             .filter-input-container {
                 img {
@@ -109,9 +109,9 @@
         background-color: $ingredientsColor;
 
         .filter-list {
+            z-index: 2;
             width: 792px;
             background-color: $ingredientsColor;
-            top: 100%;
         }
     }
 
@@ -119,9 +119,9 @@
         background-color: $appliancesColor;
 
         .filter-list {
+            z-index: 2;
             width: 792px;
             background-color: $appliancesColor;
-            top: 100%;
         }
     }
 
@@ -129,9 +129,9 @@
         background-color: $ustensilsColor;
 
         .filter-list {
+            z-index: 2;
             width: 792px;
             background-color: $ustensilsColor;
-            top: 100%;
         }
     }
 }
@@ -180,17 +180,47 @@
         margin: 0 30px;
     }
 
-    .filter_container {
-        margin: 0 30px;
-        display: grid;
-        gap: 20px;
-    }
 
     .selected_filter {
         margin: 0px 0px 30px 30px;
     }
 
+
     .filter-input-container {
         width: 100%;
     }
+
+    .filter_container {
+        margin: 0 30px;
+        display: grid;
+        gap: 20px;
+
+        .filter {
+            &.filter-open {
+                width: 100%;
+            }
+        }
+
+        .ingredients {
+            .filter-list {
+                width: calc(100% - 32px);
+            }
+        }
+
+        .appliances {
+            .filter-list {
+                width: calc(100% - 32px);
+            }
+        }
+
+        .ustensils {
+            background-color: $ustensilsColor;
+
+            .filter-list {
+                width: calc(100% - 32px);
+            }
+        }
+    }
+
+
 }
