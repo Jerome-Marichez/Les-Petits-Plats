@@ -26,17 +26,39 @@ export async function displayFilter(recipes, filterList) {
         if (filterIngredients && recipe.ingredients) {
             let ingredients = recipe.ingredients;
             ingredients.forEach(element => {
-                if (!ingredientsTmp.includes(element.ingredient.toLowerCase())) { ingredientsTmp.push(element.ingredient.toLowerCase()); }
+                let ingredient = element.ingredient.toLowerCase();
+                ingredient = ingredient.split(" "); // Split to get only first word
+
+                if (ingredient[0].endsWith("s")) {
+                    ingredient[0] = ingredient[0].slice(0, -1);
+                }
+
+                if (!ingredientsTmp.includes(ingredient[0])) { ingredientsTmp.push(ingredient[0]); }
             });
         }
 
         if (filterAppliances && recipe.appliance) {
-            if (!appliancesTmp.includes(recipe.appliance.toLowerCase())) { appliancesTmp.push(recipe.appliance.toLowerCase()); }
+            let appliance = recipe.appliance.toLowerCase();
+            appliance = appliance.split(" "); // Split to get only first word
+
+            if (appliance[0].endsWith("s")) {
+                appliance[0] = appliance[0].slice(0, -1);
+            }
+
+            if (!appliancesTmp.includes(appliance[0])) { appliancesTmp.push(appliance[0]); }
         }
 
         if (filterUstensils && recipe.ustensils) {
             recipe.ustensils.forEach(element => {
-                if (!ustensilsTmp.includes(element.toLowerCase())) { ustensilsTmp.push(element.toLowerCase()); }
+
+                let ustensil = element.toLowerCase();
+                ustensil = ustensil.split(" "); // Split to get only first word
+
+                if (ustensil[0].endsWith("s")) {
+                    ustensil[0] = ustensil[0].slice(0, -1);
+                }
+                
+                if (!ustensilsTmp.includes(ustensil[0])) { ustensilsTmp.push(ustensil[0]); }
             });
 
 
@@ -50,6 +72,10 @@ export async function displayFilter(recipes, filterList) {
     ustensilsTmp.sort((a, b) => a.localeCompare(b));
     appliancesTmp.sort((a, b) => a.localeCompare(b));
     // end sort by alphabetic
+
+
+    // Remove all "space"
+    ingredientsTmp.sort((a, b) => a.localeCompare(b));
 
     // BUILD LIST 
     ingredientsTmp.forEach(ingredient => {

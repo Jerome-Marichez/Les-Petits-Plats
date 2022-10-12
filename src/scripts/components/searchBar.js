@@ -31,28 +31,36 @@ export function updateResearch() {
 
             let isFilterOk = [];
 
-            let ingredients = recipe.ingredients;
-            let appliances = recipe.appliance;
-            let ustensils = recipe.ustensils;
-
+            const ingredients = recipe.ingredients;
+            const appliances = recipe.appliance;
+            const ustensils = recipe.ustensils;
 
 
             filterRequest.forEach(function (filterSearched) {
                 filterSearched = filterSearched.toLowerCase();
-                if (filterSearched.length > 3) {
+
+
+                if (filterSearched.length > 1) {
 
 
                     // We got each filterSearch to be loop to see if it's inside each Recipe
                     if (ingredients) {
+                        let ingredientFound = 0;
+
                         ingredients.forEach(element => {
 
                             const ingredient = element.ingredient.toLowerCase();
 
-                            if (ingredient.toLowerCase().includes(filterSearched)) {
-                                isFilterOk.push("true");
+                            if (ingredientFound === 0) {
+                                if (ingredient.toLowerCase().includes(filterSearched)) {
+                                    isFilterOk.push("true");
+                                    ingredientFound = 1;
+                                }
                             }
 
+
                         });
+
                     }
 
                     if (appliances) {
@@ -82,9 +90,9 @@ export function updateResearch() {
 
 
 
-
             if (isFilterOk.length === filterRequest.length) {
                 finalRequest.push(recipe);
+                isFilterOk = [];
             }
 
 
