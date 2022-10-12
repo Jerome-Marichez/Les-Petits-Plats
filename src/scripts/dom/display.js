@@ -26,17 +26,17 @@ export async function displayFilter(recipes, filterList) {
         if (filterIngredients && recipe.ingredients) {
             let ingredients = recipe.ingredients;
             ingredients.forEach(element => {
-                if (!ingredientsTmp.includes(element.ingredient)) { ingredientsTmp.push(element.ingredient); }
+                if (!ingredientsTmp.includes(element.ingredient.toLowerCase())) { ingredientsTmp.push(element.ingredient.toLowerCase()); }
             });
         }
 
         if (filterAppliances && recipe.appliance) {
-            if (!appliancesTmp.includes(recipe.appliance)) { appliancesTmp.push(recipe.appliance); }
+            if (!appliancesTmp.includes(recipe.appliance.toLowerCase())) { appliancesTmp.push(recipe.appliance.toLowerCase()); }
         }
 
         if (filterUstensils && recipe.ustensils) {
             recipe.ustensils.forEach(element => {
-                if (!ustensilsTmp.includes(element)) { ustensilsTmp.push(element); }
+                if (!ustensilsTmp.includes(element.toLowerCase())) { ustensilsTmp.push(element.toLowerCase()); }
             });
 
 
