@@ -10,11 +10,92 @@ export function updateResearch() {
     // Update Research 
     clearCards(cardsContainer);
 
-    const searchRequest = searchBar.value.toLowerCase(); // + getSelectedFilter();
-    console.log(searchRequest);
+    // Filter request 
+    const filterRequest = getSelectedFilter();
 
-    const returnRequest = searchAlgo(recipes, searchRequest);
-    displayCards(returnRequest, cardsContainer);
+
+    // Search request 
+    const searchRequest = searchBar.value.toLowerCase();
+    const returnSearchRequest = searchAlgo(recipes, searchRequest); // Search Request
+    let finalRequest = returnSearchRequest; // Final Request by default = Search Request
+
+
+
+    // Filter code
+    if (filterRequest.length >= 1) { // IF Filter request asked
+
+        finalRequest = []; // FinalRequest is set back to 0 since we are going filter though filter 
+
+        returnSearchRequest.forEach(recipe => {
+
+
+            let isFilterOk = [];
+
+            let ingredients = recipe.ingredients;
+            let appliances = recipe.appliance;
+            let ustensils = recipe.ustensils;
+
+
+
+            filterRequest.forEach(function (filterSearched) {
+
+                if (filterSearched.length > 3) {
+
+
+                    // We got each filterSearch to be loop to see if it's inside each Recipe
+                    if (ingredients) {
+                        ingredients.forEach(element => {
+
+                            const ingredient = element.ingredient.toLowerCase();
+
+                            if (filterSearched == ingredient) {
+                                isFilterOk.push("true");
+                            }
+
+                        });
+                    }
+
+                    if (appliances) {
+
+                        if (filterSearched == appliances.toLowerCase()) {
+                            isFilterOk.push("true");
+                        }
+
+                    }
+
+                    if (ustensils) {
+                        ustensils.forEach(element => {
+                            if (filterSearched == element.toLowerCase()) {
+                                isFilterOk.push("true");
+                            }
+
+
+                        });
+                    }
+
+
+
+
+                }
+            });
+
+
+
+
+
+            if (isFilterOk.length === filterRequest.length) {
+                finalRequest.push(recipe);
+            }
+
+
+        });
+
+    }
+    // End Filter Code
+
+    console.log(finalRequest);
+
+    displayCards(finalRequest, cardsContainer);
 }
 
 export function addListenerSearchBar() {
@@ -74,10 +155,10 @@ export function addListenerSelectedFilter(filterList, classSelectedFilter) {
 export function getSelectedFilter() {
 
     const selected_filter = document.querySelectorAll(".selected_filter p");
-    let filtersValue = " ";
+    let filtersValue = [];
     selected_filter.forEach(p => {
 
-        filtersValue += p.innerHTML + " ";
+        filtersValue.push(p.innerHTML.toLowerCase());
 
     });
 
