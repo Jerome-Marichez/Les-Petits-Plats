@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { displayCards, displaySelectedFilter } from "../dom/display.js";
 import { clearCards, clearSelectedFilter } from "../dom/clear.js";
-import { searchAlgo } from "../algo/algo.js";
+import { searchAlgo } from "../algo/algoNative.js";
 
 const cardsContainer = document.querySelector(".cards-container");
 const searchBar = document.getElementById("recipeSearch");
@@ -38,7 +38,7 @@ export function updateResearch() {
 
 
             filterRequest.forEach(function (filterSearched) {
-
+                filterSearched = filterSearched.toLowerCase();
                 if (filterSearched.length > 3) {
 
 
@@ -48,7 +48,7 @@ export function updateResearch() {
 
                             const ingredient = element.ingredient.toLowerCase();
 
-                            if (filterSearched == ingredient) {
+                            if (ingredient.toLowerCase().includes(filterSearched)) {
                                 isFilterOk.push("true");
                             }
 
@@ -57,7 +57,7 @@ export function updateResearch() {
 
                     if (appliances) {
 
-                        if (filterSearched == appliances.toLowerCase()) {
+                        if (appliances.toLowerCase().includes(filterSearched)) {
                             isFilterOk.push("true");
                         }
 
@@ -65,7 +65,7 @@ export function updateResearch() {
 
                     if (ustensils) {
                         ustensils.forEach(element => {
-                            if (filterSearched == element.toLowerCase()) {
+                            if (filterSearched.includes(element.toLowerCase())) {
                                 isFilterOk.push("true");
                             }
 
