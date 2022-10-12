@@ -45,6 +45,11 @@ export async function displayFilter(recipes, filterList) {
 
     // end add filter name in their section
 
+    // Sort by alphabetic
+    ingredientsTmp.sort((a, b) => a.localeCompare(b));
+    ustensilsTmp.sort((a, b) => a.localeCompare(b));
+    appliancesTmp.sort((a, b) => a.localeCompare(b));
+    // end sort by alphabetic
 
     // BUILD LIST 
     ingredientsTmp.forEach(ingredient => {
