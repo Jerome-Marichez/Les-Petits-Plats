@@ -1,4 +1,4 @@
-export const searchAlgo = (recipes, input) => {
+export function searchAlgo(recipes, input) {
 
     const recipesFiltered = [];
 
