@@ -19,12 +19,10 @@ export function searchAlgo(recipes, input) {
 
             const isIngredientContains = regex.test(ingredients.ingredient);
 
-            if (isIngredientContains) {
+            if (isIngredientContains || isNameContains || isDescriptionContains) {
                 recipesFiltered.push(recipe);
             }
-            else if (isNameContains || isDescriptionContains) {
-                recipesFiltered.push(recipe);
-            }
+
         }
     }
 
