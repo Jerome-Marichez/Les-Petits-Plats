@@ -15,7 +15,8 @@ export function updateResearch() {
 
 
     // Search request 
-    const searchRequest = searchBar.value.toLowerCase();
+    let searchRequest = searchBar.value.toLowerCase();
+    if (searchRequest.length < 3) { searchRequest = "";} // We do a search request only if length > 3
     const returnSearchRequest = searchAlgo(recipes, searchRequest); // Search Request
     let finalRequest = returnSearchRequest; // Final Request by default = Search Request
 
@@ -102,6 +103,7 @@ export function updateResearch() {
     // End Filter Code
 
     console.log(finalRequest);
+
 
     displayCards(finalRequest, cardsContainer);
 }
