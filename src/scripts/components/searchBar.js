@@ -1,7 +1,7 @@
 import { recipes } from "../data/recipes.js";
 import { displayCards, displaySelectedFilter } from "../dom/display.js";
 import { clearCards, clearSelectedFilter } from "../dom/clear.js";
-import { searchAlgo } from "../algo/algoNative.js";
+import { searchAlgo } from "../algo/algo.js";
 
 const cardsContainer = document.querySelector(".cards-container");
 const searchBar = document.getElementById("recipeSearch");
