@@ -38,6 +38,10 @@ input {
   outline: none;
 }
 
+label {
+  display: none;
+}
+
 @media screen and (max-width: 1200px) {
   #errorMessage {
     font-size: 1.2em;

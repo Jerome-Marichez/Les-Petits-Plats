@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Les petits plats</title>
@@ -12,6 +12,7 @@
         <header class="header container">
             <img class="logo" src="./assets/logo/logo-500x500.png" alt="Logo">
             <div class="search">
+                <label for="recipeSearch">Recipe Search</label>
                 <input
                     type="text"
                     id="recipeSearch"
@@ -21,61 +22,64 @@
                 >
                 <img class="search-icon" src="./assets/icons/magnifying-glass-solid.svg" alt="">
             </div>
-            <div class="selected_filter">
-         
-            </div>
-        </div>
-        <div class="filter_container">
-            <div class="filter ingredients">
-                <div class="filter-input-container">
-                    <input disabled
-                        type="text"
-                        name="filterListInput"
-                        id="filterListInputIngredients"
-                        placeholder="Ingredients"
-                    >
-                    <img id="ingredientListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+            <div class="selected_filter"></div>
+            <div class="filter_container">
+                <div class="filter ingredients">
+                    <div class="filter-input-container">
+                        <label for="filterListInputIngredients">Filter List Input Ingredients</label>
+                        <input
+                            disabled
+                            type="text"
+                            name="filterListInput"
+                            id="filterListInputIngredients"
+                            placeholder="Ingredients"
+                        >
+                        <img id="ingredientListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+                    </div>
+                    <ul class="filter-list list-ingredients"></ul>
                 </div>
-                <ul class="filter-list list-ingredients"></ul>
-            </div>
-            <div class="filter appliances">
-                <div class="filter-input-container">
-                    <input disabled
-                        id="filterListInputAppliances"
-                        type="text"
-                        name="filterListInput"
-                        placeholder="Appareils"
-                    >
-                    <img id="applianceListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+                <div class="filter appliances">
+                    <div class="filter-input-container">
+                        <label for="filterListInputAppliances">Filter List Input Appliances</label>
+                        <input
+                            disabled
+                            id="filterListInputAppliances"
+                            type="text"
+                            name="filterListInput"
+                            placeholder="Appareils"
+                        >
+                        <img id="applianceListArrow" src="./assets/icons/chevron-down-solid.svg" alt="">
+                    </div>
+                    <ul class="filter-list list-appliances"></ul>
                 </div>
-                <ul class="filter-list list-appliances"></ul>
-            </div>
-            <div class="filter ustensils">
-                <div class="filter-input-container">
-                    <input disabled
-                        id="filterListInputUstensils"
-                        type="text"
-                        name="filterListInput"
-                        placeholder="Ustensiles"
-                    >
-                    <img
-                        id="ustensilListArrow"
-                        class="rotated"
-                        src="./assets/icons/chevron-down-solid.svg"
-                        alt=""
-                    >
+                <div class="filter ustensils">
+                    <div class="filter-input-container">
+                        <label for="filterListInputUstensils">Filter List Input Ustensils</label>
+                        <input
+                            disabled
+                            id="filterListInputUstensils"
+                            type="text"
+                            name="filterListInput"
+                            placeholder="Ustensiles"
+                        >
+                        <img
+                            id="ustensilListArrow"
+                            class="rotated"
+                            src="./assets/icons/chevron-down-solid.svg"
+                            alt=""
+                        >
+                    </div>
+                    <ul class="filter-list list-ustensils"></ul>
                 </div>
-                <ul class="filter-list list-ustensils"></ul>
             </div>
-        </div>
-    </header>
-    <main class="cards-container container">
-        <p id="errorMessage">
-            Aucune recette ne correspond à votre critère... vous pouvez
+        </header>
+        <main class="cards-container container">
+            <p id="errorMessage">
+                Aucune recette ne correspond à votre critère... vous pouvez
         chercher "tarte aux pommes" ect...
-        </p>
-    </main>
-    <script src="./src/scripts/main.js" type="module"></script>
-    <footer></footer>
-</body>
+            </p>
+        </main>
+        <script src="./src/scripts/main.js" type="module"></script>
+        <footer></footer>
+    </body>
 </html>
