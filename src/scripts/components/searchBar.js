@@ -1,6 +1,6 @@
 import { recipes } from "../data/recipes.js";
-import { displayCards, displaySelectedFilter } from "../dom/display.js";
-import { clearCards, clearSelectedFilter } from "../dom/clear.js";
+import { displayCards, displayFilter, displaySelectedFilter } from "../dom/display.js";
+import { clearCards, clearFilter, clearSelectedFilter } from "../dom/clear.js";
 import { searchAlgo } from "../algo/algo.js";
 
 const cardsContainer = document.querySelector(".cards-container");
@@ -10,16 +10,29 @@ export function updateResearch() {
     // Update Research 
     clearCards(cardsContainer);
 
+
+    //Group Filter DOM 
+    const filterList = document.querySelectorAll(".filter-list");
     // Filter request 
     const filterRequest = getSelectedFilter();
 
 
     // Search request 
     let searchRequest = searchBar.value.toLowerCase();
-    if (searchRequest.length < 3) { searchRequest = "";} // We do a search request only if length > 3
+    if (searchRequest.length < 3) {
+        // We do a search request only if length > 3
+        searchRequest = "";
+    }
     const returnSearchRequest = searchAlgo(recipes, searchRequest); // Search Request
     let finalRequest = returnSearchRequest; // Final Request by default = Search Request
 
+
+    // Updatre filter items <li>
+    if (searchRequest.length > 3) {
+        // We Reset filter for the specified request only if search request > 3 
+        clearFilter(filterList);
+        displayFilter(returnSearchRequest, filterList);
+    }
 
 
     // Filter code
