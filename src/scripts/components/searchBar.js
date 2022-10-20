@@ -9,7 +9,7 @@ const searchBar = document.getElementById("recipeSearch");
 export function updateResearch() {
     // Update Research 
     clearCards(cardsContainer);
-
+    clearFilter(filterList);
 
     //Group Filter DOM 
     const filterList = document.querySelectorAll(".filter-list");
@@ -22,17 +22,17 @@ export function updateResearch() {
     if (searchRequest.length < 3) {
         // We do a search request only if length > 3
         searchRequest = "";
+
     }
+
     const returnSearchRequest = searchAlgo(recipes, searchRequest); // Search Request
     let finalRequest = returnSearchRequest; // Final Request by default = Search Request
 
 
-    // Updatre filter items <li>
-    if (searchRequest.length > 3) {
-        // We Reset filter for the specified request only if search request > 3 
-        clearFilter(filterList);
-        displayFilter(returnSearchRequest, filterList);
-    }
+    // Update filter items <li> depend of searchRequest
+    clearFilter(filterList);
+    displayFilter(returnSearchRequest, filterList);
+
 
 
     // Filter code
