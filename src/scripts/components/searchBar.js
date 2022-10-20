@@ -3,7 +3,9 @@ import { displayCards, displayFilter, displaySelectedFilter } from "../dom/displ
 import { clearCards, clearFilter, clearSelectedFilter } from "../dom/clear.js";
 import { searchAlgo } from "../algo/algo.js";
 
+
 const cardsContainer = document.querySelector(".cards-container");
+const filterList = document.querySelectorAll(".filter-list");
 const searchBar = document.getElementById("recipeSearch");
 
 export function updateResearch() {
@@ -12,7 +14,6 @@ export function updateResearch() {
     clearFilter(filterList);
 
     //Group Filter DOM 
-    const filterList = document.querySelectorAll(".filter-list");
     // Filter request 
     const filterRequest = getSelectedFilter();
 
@@ -30,7 +31,6 @@ export function updateResearch() {
 
 
     // Update filter items <li> depend of searchRequest
-    clearFilter(filterList);
     displayFilter(returnSearchRequest, filterList);
 
 
