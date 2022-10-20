@@ -57,7 +57,7 @@ export async function displayFilter(recipes, filterList) {
                 if (ustensil[0].endsWith("s")) {
                     ustensil[0] = ustensil[0].slice(0, -1);
                 }
-                
+
                 if (!ustensilsTmp.includes(ustensil[0])) { ustensilsTmp.push(ustensil[0]); }
             });
 
